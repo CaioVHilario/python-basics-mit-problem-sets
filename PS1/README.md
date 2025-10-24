@@ -2,7 +2,7 @@
 
 ## 🏠 Part A
 
-Este exercício faz parte do Problem Set 1 do curso **MIT 6.0001 – Introduction to Computer Science and Programming in Python**.
+Este exercício faz parte do Problem Set 1 do curso [MIT 6.0001 - Introduction to Computer Science and Programming in Python.](https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/pages/syllabus/).
 
 ### 🎯 Objetivo
 Calcular em quantos meses uma pessoa conseguirá economizar o valor necessário para dar a entrada em uma casa, considerando:
