@@ -98,38 +98,45 @@ def get_available_letters(letters_guessed):
     
     return letters_not_guessed
 
-secret_word = 'apple'
-letters_guessed = ['e', 'a', 'p', 'f', 'l', 's']
-print(get_available_letters(letters_guessed))
-
 def hangman(secret_word):
     '''
     secret_word: string, the secret word to guess.
-    
     Starts up an interactive game of Hangman.
-    
-    * At the start of the game, let the user know how many 
-      letters the secret_word contains and how many guesses s/he starts with.
-      
-    * The user should start with 6 guesses
-
-    * Before each round, you should display to the user how many guesses
-      s/he has left and the letters that the user has not yet guessed.
-    
-    * Ask the user to supply one guess per round. Remember to make
-      sure that the user puts in a letter!
-    
-    * The user should receive feedback immediately after each guess 
-      about whether their guess appears in the computer's word.
-
-    * After each guess, you should display to the user the 
-      partially guessed word so far.
-    
     Follows the other limitations detailed in the problem write-up.
     '''
-    
+    num_letters = len(secret_word)
+    alphabetic_lowercase = string.ascii_lowercase
+    letter_guessed = []
+    remaining_guesses = 6
 
+    print(f"Estou pensando em uma palavra que tem {num_letters} letras.")
+    print("---------------")
+    print("Você tem 6 chances para acertá-la.")
+    print(f"Você tem as seguintes letras disponiveis para tentar {alphabetic_lowercase}")
 
+    for i in remaining_guesses:
+      letter = input("Chute uma letra: ")
+
+      remaining_guesses -= 1
+      letter_guessed.append(letter)
+
+      available_letters = get_available_letters(letter_guessed)
+      word_guessing = get_guessed_word(secret_word, letter_guessed)
+
+      if letter in secret_word:
+          print(f"Bom chute: {word_guessing}")
+          print("---------------")
+          print(f"Você tem {remaining_guesses} chances para acertá-la.")
+          print(f"Você tem as seguintes letras disponiveis para tentar {available_letters}")
+      else: 
+          print(f"Vixe! Essa letra não está na palavra: {word_guessing}")
+          print("---------------")   
+          print(f"Você tem {remaining_guesses} chances para acertá-la.")
+          print(f"Você tem as seguintes letras disponiveis para tentar {available_letters}")   
+      
+
+secret_word = "apple"
+hangman(secret_word)
 
 # When you've completed your hangman function, scroll down to the bottom
 # of the file and uncomment the first two lines to test
@@ -208,14 +215,14 @@ def hangman_with_hints(secret_word):
 # Hint: You might want to pick your own secret_word while you're testing.
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     # pass
 
     # To test part 2, comment out the pass line above and
     # uncomment the following two lines.
     
-    secret_word = choose_word(wordlist)
-    hangman(secret_word)
+    # secret_word = choose_word(wordlist)
+    # hangman(secret_word)
 
 ###############
     
